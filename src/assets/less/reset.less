@@ -1,0 +1,80 @@
+  html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+  fieldset, img { border:none; }
+  img{ display: block; }
+  address, caption, cite, code, dfn, var { font-style:normal; font-weight:normal; }
+  ul, ol { list-style:none; }
+  li { list-style:none; }
+  input::-moz-focus-inner { border:none; padding:0; }
+  select, input, textarea { font-size:12px; margin:0; outline: none;}
+  input[type="text"], input[type="password"], textarea { outline-style:none; -webkit-appearance:none; }
+  textarea { resize:none; }
+  button{ cursor: pointer;outline: none;background: none; border: none;}
+  input{ background: none; border: none;outline: none;}
+  table { border-collapse:collapse; }
+  body,html { color:#333; font-family:'PingFang SC','PingFang-SC-Medium', "Microsoft YaHei", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+    background:#f1f1f1;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  a { color:#333; text-decoration:none;cursor: pointer; }
+  a:hover { text-decoration:none; }
+
+  //去除数字表单上下箭头
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0;
+  }
+
+  // input框默认展示文字样式
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #E9EBED; 
+    opacity: 1; 
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #E9EBED;
+    opacity: 1;
+  }
+  input:-ms-input-placeholder{
+    color: #E9EBED;
+    opacity: 1;
+  }
+  input::-webkit-input-placeholder{
+    color: #E9EBED;
+    opacity: 1;
+  }
+  input[type="number"]{-moz-appearance:textfield;}
+
+  // 清除浮动
+  .clearfix {
+    *zoom:1;
+  }
+  .clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+
+  // 优化滚动条样式
+  ::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
+    background-color:#fff;
+  }
+  ::-webkit-scrollbar {//滚动条的宽度
+    width:10px;
+    height:10px;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {//滚动条的设置
+    background-color:#dddddd;
+    background-clip:padding-box;
+    min-height:28px;
+    border-radius: 4px;
+
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color:#bbb;
+  }
