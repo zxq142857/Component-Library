@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-import Home from "./views/Home.vue";
+import Pagination from "./views/Pagination.vue";
 
 Vue.use(Router);
 
@@ -12,8 +12,8 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: "pagination",
+      component: Pagination
     },
     {
       path: "/about",
@@ -23,6 +23,12 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "/dialog",
+      name: "dialog",
+      component: () =>
+        import(/* webpackChunkName: "dialog" */ "./views/Dialog.vue")
     }
   ]
 });
