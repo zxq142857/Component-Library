@@ -4,6 +4,7 @@
     <div class="nav-router">
       <router-link to="/">Pagination</router-link>
       <router-link to="/dialog">Dialog</router-link>
+      <router-link to="/select">Select</router-link>
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
@@ -21,8 +22,7 @@ export default {
   data() {
     return {
       // Tab栏相关
-      currentTab: 0,
-      tabList: ['基本信息','维护历程','跟进记录','修改日志'],
+      currentTab: 0
     }
   },
   methods: {
@@ -34,8 +34,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "./assets/less/reset.less";
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

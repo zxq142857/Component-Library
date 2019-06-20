@@ -1,7 +1,14 @@
 <template>
   <div id="about">
     <iframe ref="audio" allow="autoplay" style="display:none" src="./../assets/audio/silent.MP3"></iframe>
-    <video controls id="home-video" webkit-playsinline="true" playsinline="true" ></video>
+    <video 
+      controls id="home-video" 
+      webkit-playsinline="true" 
+      playsinline="true" 
+      loop
+      src="./../assets/video/movie.mp4"
+    >
+    </video>
   </div>
 </template>
 <script>
@@ -51,24 +58,12 @@ export default {
 </script>
 <style lang="less" scoped>
   #home-video {
-    z-index: 100;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: fill;/*这里是关键*/
-    width: auto;
-    height: auto;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background-color: #000;
-    background-size: cover;
+    width: 100%;
   }
   #about {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    padding: 50px 99px;
+    box-sizing: border-box;
     position: relative;
   }
 </style>

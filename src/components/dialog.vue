@@ -2,17 +2,29 @@
   <div id="Dialog">
     <!-- 弹窗 -->
     <el-dialog
-      :visible.sync="dialogVisible"
+      :visible.sync="visible"
       :width = "width"
       :show-close = "false"
-      @close = "close">
-      <div class="e-dialog-body">
-        <div class="e-dialog-title">{{ title }}<span @click="close" style="cursor:pointer;">×</span></div>
-        <slot></slot>  
+      @close = "dialogCloseHandle">
+      <div class="e-dialog-body" :class="{'e-comfirm-body': !isCommon}">
+        <slot name="title">
+          <!-- 普通对话框title -->
+          <div class="e-dialog-title" v-if="isCommon">{{ title }}<span @click="dialogCloseHandle" style="cursor:pointer;">×</span></div>
+        </slot>
+
+        <slot></slot>
+
         <slot name="footer">
-          <div class="e-dialog-footer">
-            <el-button class="btn-w88"  @click="close">取消</el-button>
-            <el-button class="e-btn-theme btn-w88" @click="close">确认</el-button>
+          <!-- 默认的普通对话框footer -->
+          <div class="e-dialog-footer" v-if="isCommon">
+            <el-button class="btn-w88"  @click="dialogCloseHandle">取消</el-button>
+            <el-button class="e-btn-theme btn-w88" @click="dialogComfirmHandle">确认</el-button>
+          </div>
+
+          <!-- 默认的确认框footer -->
+          <div class="e-dialog-footer" v-if="isComfirm">
+            <el-button class="btn-w60"  @click="dialogCloseHandle">取消</el-button>
+            <el-button class="e-btn-theme btn-w60" @click="dialogComfirmHandle">确认</el-button>
           </div>
         </slot>
       </div>
@@ -35,19 +47,48 @@ export default {
     'title': {
       default: '',
       type: String
+    },
+    'mode': {
+      default: 'common',
+      validator: (value) => {
+        // 这个值必须匹配下列字符串中的一个  common:普通对话框  comfirm：确认框  tips：提示框
+        return ['common', 'comfirm', 'tips'].indexOf(value) !== -1
+      }
+    }
+  },
+  computed: {
+    // 计算当前mode的类型
+    isCommon() {
+      return this.mode === 'common' ? true : false
+    },
+    isComfirm() {
+      return this.mode === 'comfirm' ? true : false
+    },
+    isTips() {
+      return this.mode === 'tips' ? true : false
     }
   },
   watch: {
-
+    dialogVisible(newValue,oldValue) {
+      this.visible = newValue
+    }
   },
   data() {
     return {
-
+      visible: false
     }
   },
   methods: {
-    close() {
+    // 关闭模态框
+    dialogCloseHandle() {
+      this.visible = false
+
       this.$emit('close','')
+    },
+    dialogComfirmHandle() {
+      this.visible = false
+
+      this.$emit('comfirmHandle','')
     }
   }
 }
@@ -55,33 +96,4 @@ export default {
 
 <style lang="less" scoped>
   @import "./../assets/less/common.less";
-
-  // 模态框样式
-  .e-dialog-body {
-    .e-dialog-title {
-      font-size:20px;
-      font-weight:bold;
-      margin-top: 7px;
-      margin-bottom: 23px;
-      line-height: 20px;
-      color:rgba(51,51,51,1);
-      span {
-        position: absolute;
-        top: 18px;
-        right: 22px;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 1;
-      }
-    }
-    .e-dialog-footer {
-      margin: 32px 0 7px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .btn-w88:first-child {
-        margin-right: 34px;
-      }
-    }
-  }
 </style>
