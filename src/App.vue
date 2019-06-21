@@ -12,30 +12,25 @@
 </template>
 
 <script>
-import Tabs from "@/components/Tabs"
-
 export default {
-  name: 'app',
-  components: {
-    'tab': Tabs
-  },
+  name: "app",
   data() {
     return {
       // Tab栏相关
       currentTab: 0
-    }
+    };
   },
   methods: {
     changeIndexHandle(val) {
       this.currentTab = val;
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothin: grayscale;
   color: #2c3e50;
@@ -55,7 +50,7 @@ export default {
   overflow: hidden;
   position: relative;
   padding: 0 20px;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #dddddd;
   a {
     min-width: 64px;
     height: 68px;
