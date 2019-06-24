@@ -25,34 +25,40 @@
     <div class="display-box">
       <LinkageSelector
         ref="linkageselector"
+        v-show="currentItem == 3"
         @showNext="getProjectDepartment"
         :selectorData="departmentOptions"
       ></LinkageSelector>
+      <Select v-show="currentItem == 1"></Select>
     </div>
-    <CodeBox></CodeBox>
+    <!-- <CodeBox></CodeBox> -->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import LinkageSelector from "@/components/linkageSelector.vue";
-import CodeBox from "@/components/CodeBox.vue";
+import Select from "@/components/select.vue";
 
 export default {
-  name: "Select",
   components: {
     LinkageSelector,
-    CodeBox
+    Select
   },
   data() {
     return {
       // 项目部列表数据
-      departmentOptions: []
+      departmentOptions: [],
+      // 当期目录项
+      currentItem: 1
     };
   },
   created() {
     this.getProjectDepartment();
+  },
+  updated() {
     this.$nextTick(() => {
+      if (!this.$refs.linkageselector) return;
       this.$refs.linkageselector.addListener();
     });
   },
@@ -73,6 +79,10 @@ export default {
             this.departmentOptions = res.data.data;
           }
         });
+    },
+    // select导航栏
+    handleSelect(index) {
+      this.currentItem = index;
     }
   }
 };
