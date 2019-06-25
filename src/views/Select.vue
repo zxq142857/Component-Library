@@ -44,7 +44,7 @@
       <template v-slot:codeIntro>
         <div class="description">
           <p>
-            详情参考elementUI官网和和select.vue模块
+            详情参考elementUI官网和和select.vue模块,单选，多选，多级联动模块许设置token：localStorage.setItem('token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyYW5kb20iOiI4NTQwMjM2LTAxYzQwMzBlLWMxZTktNDk0Yi1iNTZkLWY5ODk5ZTMyNzU5Zi01NTc2MjgyIiwiaXNzIjoiZWZhbmdzc28iLCJoZWxsbyI6ImVoYW9mYW5nIiwiaWF0IjoxNTYxNDI2OTM1LCJqdGkiOiI2OTYwNTA1LTczMjk4NjA4LWU2YjItNDEwMi04ZjU0LTllODQ4MDkyMDExYy01NzA5MjU4In0.eZjzSwRMxsNqWR_VkG2X_-6hnJ27DPfvUXrKqxEdkZM')
           </p>
         </div>
       </template>
