@@ -5,7 +5,6 @@
       <router-link to="/">Pagination</router-link>
       <router-link to="/dialog">Dialog</router-link>
       <router-link to="/select">Select</router-link>
-      <router-link to="/about">About</router-link>
     </div>
     <router-view />
   </div>

@@ -1,37 +1,54 @@
 <template>
-  <div class="select-model clearfix">
-    <el-menu default-active="1" class="el-menu-vertical" @select="handleSelect">
-      <el-menu-item index="1">
-        <i class="el-icon-location"></i>
-        <span slot="title">二级联动</span>
-      </el-menu-item>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">三级联动</span>
-      </el-menu-item>
-      <el-menu-item index="3">
-        <i class="el-icon-cpu"></i>
-        <span slot="title">多级联动</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span slot="title">单选</span>
-      </el-menu-item>
-      <el-menu-item index="5">
-        <i class="el-icon-ice-drink"></i>
-        <span slot="title">多选</span>
-      </el-menu-item>
-    </el-menu>
-    <div class="display-box">
-      <LinkageSelector
-        ref="linkageselector"
-        v-show="currentItem == 3"
-        @showNext="getProjectDepartment"
-        :selectorData="departmentOptions"
-      ></LinkageSelector>
-      <Select v-show="currentItem == 1"></Select>
+  <div>
+    <div class="select-model clearfix">
+      <el-menu
+        default-active="1"
+        class="el-menu-vertical"
+        @select="handleSelect"
+      >
+        <el-menu-item index="1">
+          <i class="el-icon-location"></i>
+          <span slot="title">二级联动</span>
+        </el-menu-item>
+        <el-menu-item index="2">
+          <i class="el-icon-menu"></i>
+          <span slot="title">三级联动</span>
+        </el-menu-item>
+        <el-menu-item index="3">
+          <i class="el-icon-cpu"></i>
+          <span slot="title">多级联动</span>
+        </el-menu-item>
+        <el-menu-item index="4">
+          <i class="el-icon-setting"></i>
+          <span slot="title">单选</span>
+        </el-menu-item>
+        <el-menu-item index="5">
+          <i class="el-icon-ice-drink"></i>
+          <span slot="title">多选</span>
+        </el-menu-item>
+      </el-menu>
+      <div class="display-box">
+        <LinkageSelector
+          ref="linkageselector"
+          v-show="currentItem == 3"
+          @showNext="getProjectDepartment"
+          :selectorData="departmentOptions"
+        ></LinkageSelector>
+        <Select :function-number="1" v-show="currentItem == 1"></Select>
+        <Select :function-number="2" v-show="currentItem == 2"></Select>
+        <Select :function-number="4" v-show="currentItem == 4"></Select>
+        <Select :function-number="5" v-show="currentItem == 5"></Select>
+      </div>
     </div>
-    <!-- <CodeBox></CodeBox> -->
+    <CodeBox>
+      <template v-slot:codeIntro>
+        <div class="description">
+          <p>
+            详情参考elementUI官网和和select.vue模块
+          </p>
+        </div>
+      </template>
+    </CodeBox>
   </div>
 </template>
 
@@ -39,11 +56,13 @@
 // @ is an alias to /src
 import LinkageSelector from "@/components/linkageSelector.vue";
 import Select from "@/components/select.vue";
+import CodeBox from "@/components/CodeBox.vue";
 
 export default {
   components: {
     LinkageSelector,
-    Select
+    Select,
+    CodeBox
   },
   data() {
     return {
