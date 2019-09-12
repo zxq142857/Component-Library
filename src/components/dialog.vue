@@ -108,5 +108,89 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "./../assets/less/common.less";
+// 基于elementUI的模态框样式重置
+/deep/.el-dialog__header {
+  display: none;
+}
+/deep/.el-dialog__body {
+  padding: 20px 20px;
+  position: relative;
+}
+// 模态框样式
+.e-dialog-body {
+  padding: 0 20px;
+  .e-dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 23px;
+    line-height: 20px;
+    color: rgba(51, 51, 51, 1);
+    span {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1;
+    }
+  }
+  .e-dialog-footer {
+    margin: 32px 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // 设置button默认间距
+    .btn-w140:first-child {
+      margin-right: 30px;
+    }
+    .btn-w88:first-child {
+      margin-right: 24px;
+    }
+    .btn-w60:first-child {
+      margin-right: 10px;
+    }
+  }
+}
+.e-comfirm-body {
+  padding: 0;
+  .e-dialog-footer {
+    margin-top: 22px;
+  }
+}
+
+// 基于elementUI的按钮样式
+.el-button {
+  background-color: #f3f3f3;
+}
+.e-btn {
+  color: #ff6a00;
+  padding: 8px 17px;
+  border-radius: 2px;
+  margin-left: 11px !important;
+  border: 1px solid rgba(255, 106, 0, 1);
+}
+.e-btn-medium {
+  color: rgba(51, 51, 51, 1);
+  padding: 8px 56px;
+  border-radius: 2px;
+  background: rgba(243, 243, 243, 1);
+  border: 1px solid rgba(221, 221, 221, 1);
+}
+.e-btn-theme {
+  background-color: #ff6a00;
+  border: 1px solid rgba(255, 106, 0, 1);
+  color: #fff;
+}
+// 按钮宽度分类
+.btn-w60 {
+  width: 60px !important;
+  padding: 8px 16px;
+}
+.btn-w88 {
+  width: 88px !important;
+}
+.btn-w140 {
+  width: 140px !important;
+}
 </style>

@@ -7,6 +7,7 @@ module.exports = {
       vuex: "Vuex",
       axios: "axios",
       swiper: "Swiper",
+      jquery: "$",
       "vue-router": "VueRouter",
       "element-ui": "ELEMENT"
     }

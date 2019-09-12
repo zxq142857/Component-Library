@@ -5,8 +5,17 @@
       <router-link to="/">Pagination</router-link>
       <router-link to="/dialog">Dialog</router-link>
       <router-link to="/select">Select</router-link>
+      <router-link to="/about">About</router-link>
     </div>
-    <router-view />
+    <transition
+      mode="out-in"
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut"
+    >
+      <keep-alive>
+        <router-view />
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
@@ -28,6 +37,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

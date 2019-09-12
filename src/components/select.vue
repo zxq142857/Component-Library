@@ -153,11 +153,23 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "./../assets/less/common.less";
 @import "./../assets/css/element.css";
 .e-selector {
   width: 320px;
   font-size: 14px;
   position: relative;
+}
+// 下拉框的样式
+.el-radio__input.is-checked .el-radio__inner {
+  border-color: #ff6a00 !important;
+  background: #ff6a00 !important;
+}
+.el-cascader-node.is-selectable.in-active-path {
+  color: #ff6a00 !important;
+}
+.el-cascader-node.in-active-path,
+.el-cascader-node.is-active,
+.el-cascader-node.is-selectable.in-checked-path {
+  color: #ff6a00 !important;
 }
 </style>

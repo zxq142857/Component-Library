@@ -23,6 +23,12 @@ export default new Router({
       name: "select",
       component: () =>
         import(/* webpackChunkName: "dialog" */ "./views/Select.vue")
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: () =>
+        import(/* webpackChunkName: "dialog" */ "./views/About.vue")
     }
   ]
 });
